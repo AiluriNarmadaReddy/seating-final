@@ -7,6 +7,12 @@ class Room:
     """
     Room class to represent an examination hall
     """
+    # models/room.py
+
+class Room:
+    """
+    Room class to represent an examination hall
+    """
     def __init__(self, room_no, rows, columns):
         """
         Initialize a Room object
@@ -16,9 +22,10 @@ class Room:
             rows (int): Number of rows in the room
             columns (int): Number of columns in the room
         """
-        self.room_no = room_no
-        self.rows = rows
-        self.columns = columns
+        # Ensure room_no is stored as a string
+        self.room_no = str(room_no)  # Convert to string explicitly
+        self.rows = int(rows)
+        self.columns = int(columns)
         
         # Initialize the seating grid with None values
         self.seating_grid = [[None for _ in range(columns)] for _ in range(rows)]
