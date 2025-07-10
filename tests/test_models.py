@@ -41,9 +41,9 @@ class TestStudent:
 
 class TestRoom:
     def test_room_initialization(self):
-        room = Room("101", 5, 5)
+        room = Room(101, 5, 5)
         
-        assert room.room_no == "101"
+        assert room.room_no == 101
         assert room.rows == 5
         assert room.columns == 5
         assert room.capacity == 25
@@ -54,7 +54,7 @@ class TestRoom:
                 assert room.seating_grid[row][col] is None
     
     def test_set_and_get_seat(self):
-        room = Room("101", 3, 3)
+        room = Room(101, 3, 3)
         student = Student("21321A0401")
         
         # Set a student to a seat
@@ -68,7 +68,7 @@ class TestRoom:
         assert not room.is_seat_empty(1, 2)  # This seat should be occupied
     
     def test_clear_all_seats(self):
-        room = Room("101", 3, 3)
+        room = Room(101, 3, 3)
         student = Student("21321A0401")
         
         # Set a student to a seat
@@ -106,7 +106,7 @@ class TestExamSession:
         # Create test students and rooms
         student1 = Student("21321A0401")
         student2 = Student("21321A0501")
-        room1 = Room("101", 3, 3)
+        room1 = Room(101, 3, 3)
         room2 = Room("102", 4, 4)
         
         # Add students and rooms
@@ -127,7 +127,7 @@ class TestExamSession:
             exam_session.add_student(Student(f"21321A0{i+1:03d}"))
         
         # Add a room with capacity 9
-        exam_session.add_room(Room("101", 3, 3))
+        exam_session.add_room(Room(101, 3, 3))
         
         # Should not have sufficient capacity
         assert not exam_session.has_sufficient_capacity()
@@ -150,7 +150,7 @@ class TestSeatingAllocator:
             exam_session.add_student(Student(f"21321A05{i+1:02d}"))
         
         # Add a room with capacity 9
-        room = Room("101", 3, 3)
+        room = Room(101, 3, 3)
         exam_session.add_room(room)
         
         # Allocate seats
@@ -182,7 +182,7 @@ class TestSeatingAllocator:
             exam_session.add_student(Student(f"21321A04{i+1:02d}"))
         
         # Add a room with capacity 9
-        room = Room("101", 3, 3)
+        room = Room(101, 3, 3)
         exam_session.add_room(room)
         
         # Allocate seats
